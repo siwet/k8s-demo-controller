@@ -20,26 +20,26 @@ package v1alpha1
 
 import (
 	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/apis/example/v1alpha1"
-	"github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned/scheme"
+	"github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
-type SimpleapiV1alpha1Interface interface {
+type ExampleV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	UsersGetter
 }
 
-// SimpleapiV1alpha1Client is used to interact with features provided by the simpleapi.cntsw.github.com group.
-type SimpleapiV1alpha1Client struct {
+// ExampleV1alpha1Client is used to interact with features provided by the example.cntsw.github.com group.
+type ExampleV1alpha1Client struct {
 	restClient rest.Interface
 }
 
-func (c *SimpleapiV1alpha1Client) Users(namespace string) UserInterface {
+func (c *ExampleV1alpha1Client) Users(namespace string) UserInterface {
 	return newUsers(c, namespace)
 }
 
-// NewForConfig creates a new SimpleapiV1alpha1Client for the given config.
-func NewForConfig(c *rest.Config) (*SimpleapiV1alpha1Client, error) {
+// NewForConfig creates a new ExampleV1alpha1Client for the given config.
+func NewForConfig(c *rest.Config) (*ExampleV1alpha1Client, error) {
 	config := *c
 	if err := setConfigDefaults(&config); err != nil {
 		return nil, err
@@ -48,12 +48,12 @@ func NewForConfig(c *rest.Config) (*SimpleapiV1alpha1Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &SimpleapiV1alpha1Client{client}, nil
+	return &ExampleV1alpha1Client{client}, nil
 }
 
-// NewForConfigOrDie creates a new SimpleapiV1alpha1Client for the given config and
+// NewForConfigOrDie creates a new ExampleV1alpha1Client for the given config and
 // panics if there is an error in the config.
-func NewForConfigOrDie(c *rest.Config) *SimpleapiV1alpha1Client {
+func NewForConfigOrDie(c *rest.Config) *ExampleV1alpha1Client {
 	client, err := NewForConfig(c)
 	if err != nil {
 		panic(err)
@@ -61,9 +61,9 @@ func NewForConfigOrDie(c *rest.Config) *SimpleapiV1alpha1Client {
 	return client
 }
 
-// New creates a new SimpleapiV1alpha1Client for the given RESTClient.
-func New(c rest.Interface) *SimpleapiV1alpha1Client {
-	return &SimpleapiV1alpha1Client{c}
+// New creates a new ExampleV1alpha1Client for the given RESTClient.
+func New(c rest.Interface) *ExampleV1alpha1Client {
+	return &ExampleV1alpha1Client{c}
 }
 
 func setConfigDefaults(config *rest.Config) error {
@@ -81,7 +81,7 @@ func setConfigDefaults(config *rest.Config) error {
 
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
-func (c *SimpleapiV1alpha1Client) RESTClient() rest.Interface {
+func (c *ExampleV1alpha1Client) RESTClient() rest.Interface {
 	if c == nil {
 		return nil
 	}

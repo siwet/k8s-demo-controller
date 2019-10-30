@@ -30,13 +30,13 @@ import (
 
 // FakeUsers implements UserInterface
 type FakeUsers struct {
-	Fake *FakeSimpleapiV1alpha1
+	Fake *FakeExampleV1alpha1
 	ns   string
 }
 
-var usersResource = schema.GroupVersionResource{Group: "simpleapi.cntsw.github.com", Version: "v1alpha1", Resource: "users"}
+var usersResource = schema.GroupVersionResource{Group: "example.cntsw.github.com", Version: "v1alpha1", Resource: "users"}
 
-var usersKind = schema.GroupVersionKind{Group: "simpleapi.cntsw.github.com", Version: "v1alpha1", Kind: "User"}
+var usersKind = schema.GroupVersionKind{Group: "example.cntsw.github.com", Version: "v1alpha1", Kind: "User"}
 
 // Get takes name of the user, and returns the corresponding user object, and an error if there is any.
 func (c *FakeUsers) Get(name string, options v1.GetOptions) (result *v1alpha1.User, err error) {

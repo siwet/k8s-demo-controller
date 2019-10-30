@@ -19,8 +19,8 @@ limitations under the License.
 package example
 
 import (
-	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/example/v1alpha1"
-	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/example/v1alpha1"
+	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to each of this group's versions.

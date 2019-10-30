@@ -22,9 +22,9 @@ import (
 	time "time"
 
 	examplev1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/apis/example/v1alpha1"
-	versioned "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned"
-	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/internalinterfaces"
-	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/client/listers/example/v1alpha1"
+	versioned "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned"
+	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/generated/client/listers/example/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -61,13 +61,13 @@ func NewFilteredUserInformer(client versioned.Interface, namespace string, resyn
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.SimpleapiV1alpha1().Users(namespace).List(options)
+				return client.ExampleV1alpha1().Users(namespace).List(options)
 			},
 			WatchFunc: func(options v1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.SimpleapiV1alpha1().Users(namespace).Watch(options)
+				return client.ExampleV1alpha1().Users(namespace).Watch(options)
 			},
 		},
 		&examplev1alpha1.User{},

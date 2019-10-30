@@ -21,7 +21,7 @@ package internalinterfaces
 import (
 	time "time"
 
-	versioned "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned"
+	versioned "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	cache "k8s.io/client-go/tools/cache"

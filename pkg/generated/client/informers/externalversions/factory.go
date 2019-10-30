@@ -23,9 +23,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned"
-	example "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/example"
-	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/internalinterfaces"
+	versioned "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned"
+	example "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/example"
+	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/internalinterfaces"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -172,9 +172,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Simpleapi() example.Interface
+	Example() example.Interface
 }
 
-func (f *sharedInformerFactory) Simpleapi() example.Interface {
+func (f *sharedInformerFactory) Example() example.Interface {
 	return example.New(f, f.namespace, f.tweakListOptions)
 }

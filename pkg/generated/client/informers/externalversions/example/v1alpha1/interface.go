@@ -19,7 +19,7 @@ limitations under the License.
 package v1alpha1
 
 import (
-	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/client/informers/externalversions/internalinterfaces"
+	internalinterfaces "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to all the informers in this group version.

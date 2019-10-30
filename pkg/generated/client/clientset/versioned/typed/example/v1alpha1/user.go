@@ -22,7 +22,7 @@ import (
 	"time"
 
 	v1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/apis/example/v1alpha1"
-	scheme "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned/scheme"
+	scheme "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -56,7 +56,7 @@ type users struct {
 }
 
 // newUsers returns a Users
-func newUsers(c *SimpleapiV1alpha1Client, namespace string) *users {
+func newUsers(c *ExampleV1alpha1Client, namespace string) *users {
 	return &users{
 		client: c.RESTClient(),
 		ns:     namespace,

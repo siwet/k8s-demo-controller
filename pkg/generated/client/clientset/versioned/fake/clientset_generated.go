@@ -19,9 +19,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned"
-	simpleapiv1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned/typed/example/v1alpha1"
-	fakesimpleapiv1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/client/clientset/versioned/typed/example/v1alpha1/fake"
+	clientset "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned"
+	examplev1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned/typed/example/v1alpha1"
+	fakeexamplev1alpha1 "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned/typed/example/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -76,7 +76,7 @@ func (c *Clientset) Tracker() testing.ObjectTracker {
 
 var _ clientset.Interface = &Clientset{}
 
-// SimpleapiV1alpha1 retrieves the SimpleapiV1alpha1Client
-func (c *Clientset) SimpleapiV1alpha1() simpleapiv1alpha1.SimpleapiV1alpha1Interface {
-	return &fakesimpleapiv1alpha1.FakeSimpleapiV1alpha1{Fake: &c.Fake}
+// ExampleV1alpha1 retrieves the ExampleV1alpha1Client
+func (c *Clientset) ExampleV1alpha1() examplev1alpha1.ExampleV1alpha1Interface {
+	return &fakeexamplev1alpha1.FakeExampleV1alpha1{Fake: &c.Fake}
 }
