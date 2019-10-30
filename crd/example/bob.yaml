@@ -1,0 +1,7 @@
+apiVersion: example.cntsw.github.com/v1alpha1
+kind: User
+metadata:
+  name: alice
+spec:
+  gender: female
+  expectWeight: 100

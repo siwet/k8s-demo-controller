@@ -16,7 +16,6 @@ type User struct {
 }
 
 type UserSpec struct {
-	Name         string `json:"name"`         // A person's name, assuming no repetition
 	Gender       string `json:"gender"`       // The gender of this person
 	ExpectWeight int    `json:"expectWeight"` // Expected target weight
 }
