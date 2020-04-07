@@ -48,4 +48,7 @@ APIS_PATH="$MODULE_PATH/pkg/apis"
 ```
 
 
+https://github.com/trstringer/k8s-controller-custom-resource
+
+
 
