@@ -47,8 +47,41 @@ APIS_PATH="$MODULE_PATH/pkg/apis"
 
 ```
 
+apk add git bash
+
+
+export GO111MODULE=on
+
+go get k8s.io/apimachinery
+cd /go/src/k8s.io/apimachinery && git checkout kubernetes-1.16.6
+
+go get k8s.io/code-generator
+cd /go/src/k8s.io/code-generator && git checkout kubernetes-1.16.6
+
+go get -u ./...
+
+go install ./cmd/defaulter-gen
+go install ./cmd/client-gen
+go install ./cmd/lister-gen
+go install ./cmd/informer-gen
+go install ./cmd/deepcopy-gen
+
+,,,,
 
 https://github.com/trstringer/k8s-controller-custom-resource
 
+apk add git
+cd
+git clone https://github.com/kubernetes/code-generator.git -b kubernetes-1.16.6 --depth 1
+cd code-generator
 
+
+git clone https://github.com/kubernetes/apimachinery.git -b kubernetes-1.16.6 --depth 1
+s
+
+    go install ./cmd/defaulter-gen && \
+    go install ./cmd/client-gen && \
+    go install ./cmd/lister-gen && \
+    go install ./cmd/informer-gen && \
+    go install ./cmd/deepcopy-gen && \
 
