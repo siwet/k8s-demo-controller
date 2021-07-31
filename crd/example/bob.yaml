@@ -1,4 +1,4 @@
-apiVersion: example.cntsw.github.com/v1alpha1EOF
+apiVersion: example.cntsw.github.com/v1alpha1
 kind: User
 metadata:
   name: alice

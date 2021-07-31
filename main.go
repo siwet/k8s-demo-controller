@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/cntsw/k8s-demo-controller/pkg/controller"
 	clientset "github.com/cntsw/k8s-demo-controller/pkg/generated/client/clientset/versioned"
 	informers "github.com/cntsw/k8s-demo-controller/pkg/generated/client/informers/externalversions"
 	signals "github.com/cntsw/k8s-demo-controller/pkg/singles"
@@ -59,7 +60,7 @@ func main() {
 
 	userInformerFactory := informers.NewSharedInformerFactory(userClient, time.Second*30)
 
-	controller := NewController(kubeClient, userClient,
+	controller := controller.NewController(kubeClient, userClient,
 		userInformerFactory.Example().V1alpha1().Users())
 
 	go userInformerFactory.Start(stopCh)

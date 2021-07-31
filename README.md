@@ -77,11 +77,18 @@ cd code-generator
 
 
 git clone https://github.com/kubernetes/apimachinery.git -b kubernetes-1.16.6 --depth 1
-s
+```
+go install ./cmd/defaulter-gen && \
+go install ./cmd/client-gen && \
+go install ./cmd/lister-gen && \
+go install ./cmd/informer-gen && \
+go install ./cmd/deepcopy-gen && \
+```
 
-    go install ./cmd/defaulter-gen && \
-    go install ./cmd/client-gen && \
-    go install ./cmd/lister-gen && \
-    go install ./cmd/informer-gen && \
-    go install ./cmd/deepcopy-gen && \
+
+
+# err
+
+- import collision: "github.com/googleapis/gnostic/openapiv2" and "github.com/googleapis/gnostic/OpenAPIv2"
+https://github.com/kubernetes/client-go/issues/741#issuecomment-603440039
 
